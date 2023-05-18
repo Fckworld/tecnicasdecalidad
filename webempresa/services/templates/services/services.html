@@ -5,26 +5,27 @@
 {% block title %}Servicios{% endblock %}
 
 {% block content %}
-  {% for service in services reversed %}
-    <section class="page-section">
-      <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex mr-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">Evento: {{service.subtitle}}</span>
-                <span class="section-heading-lower">{{service.title}}</span>
-              </h2>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{service.image.url}}" alt="">
-          <div class="product-item-description d-flex ml-auto">
-            <div class="bg-faded p-5 rounded">
-              <p class="mb-0">{{service.content}}</p>
-            </div>
+<section class="page-section about-heading">
+  <div class="container">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/corazon_lomito1.jpg' %}" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper"></span>
+              <span class="section-heading-lower">Corazon de Lomito en salsa Bearnesa</span>
+            </h2>
+            <p>Ingredientes</p>
+            <p>
+              Platillo escencial para esta estacion de otoño, es un platillo calido donde la principal atraccion del plato es el corazon 
+              de lomito novillo, el cual esta bañado por una capa de salsa Bearnesa y cubierto por una ligera capa de sal. Este dedicioso trozo 
+              de carne esta acompañado por brochetas de manzana tostada frutos secos y una cubierta de especias tropicales
+            </p>
           </div>
         </div>
       </div>
-    </section>
-  {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}
