@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import ReservaForm
 
 def reservas(request):
+
     if request.method == 'POST':
+        print('metodo post ')
         form = ReservaForm(request.POST)
         if form.is_valid():
             form.save()
@@ -10,7 +12,7 @@ def reservas(request):
     else:
         form = ReservaForm()
     
-    return render(request, 'reservas/reservas.html', {'form': form})
+        return render(request, 'reservas/reservas.html', {'form': form})
 
-def reserva_exitosa_view(request):
-    return render(request, 'reserva_exitosa.html')
+def reserva_exitosa(request):
+    return render(request, 'reservas/reserva_exitosa.html')
