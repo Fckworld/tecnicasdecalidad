@@ -12,7 +12,7 @@ def reservas(request):
     else:
         form = ReservaForm()
     
-        return render(request, 'reservas/reservas.html', {'form': form})
+    return render(request, 'reservas/reservas.html', {'form': form})
 
 def reserva_exitosa(request):
     return render(request, 'reservas/reserva_exitosa.html')

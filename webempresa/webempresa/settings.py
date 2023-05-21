@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'contact',
     'reservas',
     'core',
+    'noticia',
     'pages.apps.PagesConfig',
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',

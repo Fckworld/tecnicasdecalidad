@@ -16,7 +16,9 @@ urlpatterns = [
     # Paths del admin
     path('admin/', admin.site.urls),
     # Reservas
-    path('reservas/', include('reservas.urls'))
+    path('reservas/', include('reservas.urls')),
+    # Noticias
+    path('noticia/', include('noticia.urls'))
 ]
 
 if settings.DEBUG:
