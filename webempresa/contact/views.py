@@ -1,37 +1,26 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib import messages
 from django.core.mail import EmailMessage
 from .forms import ContactForm
 
 
 def contact(request):
-    contact_form = ContactForm()
 
-    if request.method == "POST":
-        contact_form = ContactForm(data=request.POST)
-        if contact_form.is_valid():
-            name = request.POST.get('name', '')
-            email = request.POST.get('email', '')
-            content = request.POST.get('content', '')
-
-            # Creamos el correo
-            email = EmailMessage(
-                "La Caffettiera: Nuevo mensaje de contacto",
-                "De {} <{}>\n\nEscribió:\n\n{}".format(name, email, content),
-                "no-contestar@inbox.mailtrap.io",
-                ["django@hektorprofe.net"],
-                reply_to=[email]
-            )
-
-            # Lo enviamos y redireccionamos
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
             try:
-                email.send()
-                # Todo ha ido bien, redireccionamos a OK
-                return redirect(reverse('contact')+"?ok")
-            except:
-                # Algo no ha ido bien, redireccionamos a FAIL
-                return redirect(reverse('contact')+"?fail")
+                form.save()
+                messages.success(request, '¡El formulario se ha enviado exitosamente!')
+                return redirect('contact')
+            except IntegrityError:
+                # Manejar la excepción de IntegrityError
+                # Puede mostrar un mensaje de error al usuario o tomar alguna otra acción adecuada
+                form.add_error(None, "Ocurrió un error al guardar los datos.")
+    else:
+        form = ContactForm()
     
-    return render(request, "contact/contact.html",{'form':contact_form})
+    return render(request, "contact/contact.html",{'form':form})
 
     

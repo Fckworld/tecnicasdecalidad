@@ -13,7 +13,13 @@
 <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {{form.media}}
-
+{% if messages %}
+    {% for message in messages %}
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">{{ message }}</span>
+    </h1>
+    {% endfor %}
+{% endif %}
 <section class="page-section about-heading">
   <div class="container">
     <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0 mx-auto d-block w-50 h-50" src="{% static 'core/img/reservas.jpg' %}" alt="">
