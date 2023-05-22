@@ -8,7 +8,6 @@ urlpatterns = [
     # Paths de services
     path('platillosemanal/', include('services.urls')),
     # Paths de blog
-    path('blog/', include('blog.urls')),
     # Paths de pages
     path('page/', include('pages.urls')),
     # Paths de pages
