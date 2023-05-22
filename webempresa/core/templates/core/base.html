@@ -45,17 +45,23 @@
             <li class="nav-item px-lg-4 {% if request.path == '/' %}active{% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/about/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">Menu</a>
+            <li class="nav-item px-lg-4 {% if request.path == '/menu/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'menu' %}">Menu</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/services/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'services' %}">Platillo de la semana</a>
+            <li class="nav-item px-lg-4 {% if request.path == '/platillosemanal/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'platillosemanal' %}">Platillo de la semana</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/store/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'store' %}">Noticias</a>
+            <li class="nav-item px-lg-4 {% if request.path == '/noticia/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'noticia' %}">Noticias</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/reservas/' %}active{% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'reservas' %}">Reservas</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if request.path == '/contacto/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contacto</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if request.path == '/informacion/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'informacion' %}">informacion</a>
             </li>
           </ul>
         </div>

@@ -5,7 +5,8 @@ from .models import Noticia, Category
 
 def noticia(request):
     noticias = Noticia.objects.all()
-    return render(request, "noticia/noticia.html", {'posts':noticias})
+    
+    return render(request, 'noticia/noticia.html', {'posts':noticias})
 
 def category(request, category_id):
     category = get_object_or_404(Category, id=category_id)

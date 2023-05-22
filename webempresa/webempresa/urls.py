@@ -6,19 +6,19 @@ urlpatterns = [
     # Paths del core
     path('', include('core.urls')),
     # Paths de services
-    path('services/', include('services.urls')),
+    path('platillosemanal/', include('services.urls')),
     # Paths de blog
     path('blog/', include('blog.urls')),
     # Paths de pages
     path('page/', include('pages.urls')),
     # Paths de pages
-    path('contact/', include('contact.urls')),
+    path('contacto/', include('contact.urls')),
     # Paths del admin
     path('admin/', admin.site.urls),
     # Reservas
     path('reservas/', include('reservas.urls')),
     # Noticias
-    path('noticia/', include('noticia.urls'))
+    path('noticia/', include('noticia.urls')),
 ]
 
 if settings.DEBUG:

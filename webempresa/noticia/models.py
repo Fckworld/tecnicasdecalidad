@@ -21,7 +21,7 @@ class Noticia(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
     content = models.TextField(verbose_name="Contenido")
     published = models.DateTimeField(verbose_name="Fecha de publicación", default=now)
-    image = models.ImageField(verbose_name="Imagen", upload_to="blog", null=True, blank=True)
+    image = models.ImageField(verbose_name="Imagen", upload_to="blog")
     author = models.ForeignKey(User, verbose_name="Autor", on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category, verbose_name="Categorías", related_name="get_posts")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
