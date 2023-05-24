@@ -1,5 +1,6 @@
 import datetime
 from django import forms
+from django.core.validators import MaxValueValidator
 from django.utils.timezone import now
 from .models import Reserva
 from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
@@ -8,7 +9,7 @@ from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 def validar_horario(value):
     
     hora_actual = now().time()
-
+    print(hora_actual)
     hora = value.hour if isinstance(value, datetime.time) else value.hour
     if (hora < 10 or hora > 22):
         raise forms.ValidationError("El horario es entre 10:00 y 22:00 del dia")
@@ -28,6 +29,7 @@ class ReservaForm(forms.ModelForm):
     
     fecha = forms.DateField(label='Fecha de reserva',widget=DatePickerInput(options={"format": "DD/MM/YYYY"}),validators=[validar_fecha])
     hora = forms.TimeField(label='Hora de reserva',widget=TimePickerInput(options={"format": "HH:MM"}),validators=[validar_horario])
+    cantidad_de_personas = forms.IntegerField(label='Cantidad de personas',validators=[MaxValueValidator(7)])
     class Meta:
         model = Reserva
         exclude = ['id','mesa']

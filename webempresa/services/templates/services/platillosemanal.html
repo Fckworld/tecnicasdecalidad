@@ -5,22 +5,21 @@
 {% block title %}Servicios{% endblock %}
 
 {% block content %}
+{% for service in services %}
 <section class="page-section about-heading">
   <div class="container">
-    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/corazon_lomito1.jpg' %}" alt="">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{service.image.url}}"  alt="">
     <div class="about-heading-content">
       <div class="row">
         <div class="col-xl-9 col-lg-10 mx-auto">
           <div class="bg-faded rounded p-5">
             <h2 class="section-heading mb-4">
               <span class="section-heading-upper"></span>
-              <span class="section-heading-lower">Corazon de Lomito en salsa Bearnesa</span>
+              <span class="section-heading-lower">{{service.titulo}}</span>
             </h2>
-            <p>Ingredientes</p>
+            <p>{{service.subtitulo}}</p>
             <p>
-              Platillo escencial para esta estacion de otoño, es un platillo calido donde la principal atraccion del plato es el corazon 
-              de lomito novillo, el cual esta bañado por una capa de salsa Bearnesa y cubierto por una ligera capa de sal. Este dedicioso trozo 
-              de carne esta acompañado por brochetas de manzana tostada frutos secos y una cubierta de especias tropicales
+              {{service.contenido}}
             </p>
           </div>
         </div>
@@ -28,4 +27,6 @@
     </div>
   </div>
 </section>
+{% endfor %}
+
 {% endblock %}

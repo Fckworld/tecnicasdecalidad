@@ -1,8 +1,10 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from datetime import datetime  
 class Mesa(models.Model):
     numero = models.IntegerField()
     capacidad = models.IntegerField()
+    disponible = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
@@ -26,4 +28,4 @@ class Reserva(models.Model):
     def __str__(self):
         return f"Reserva del cliente: {self.nombre_cliente}"
     
- 
+    
